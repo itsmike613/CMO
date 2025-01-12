@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Count Me Out" property="og:title" />
+    <meta content="A strategic guessing game." property="og:description" />
+    <meta content="https://itsmike613.github.io/CMO/" property="og:url" />
+    <meta content="https://github.com/itsmike613/CMO/blob/main/Assets/Images/logo.png?raw=true" property="og:image" />
+    <meta content="#6610F2" data-react-helmet="true" name="theme-color" />
+
+    <!-- Tab -->
+    <link rel="icon" type="image/x-icon" href="Assets/Images/logo.png">
+    <title>Count Me Out</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Assets/Styles/index.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div id="login" class="content-div">
+            <h1>Count Me Out</h1>
+            <p>A strategic guessing game.</p>
+            <button class="btn btn-dark" onclick="display('home')">Login with Google</button>
+        </div>
+
+        <div id="home" class="content-div d-none">
+            <h1>Count Me Out</h1>
+            <div class="card mb-3" style="border-radius: 10px; overflow: hidden;">
+                <div class="d-flex align-items-center p-3">
+                    <img src="Assets/Images/Icons/icon_pfp.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <div>
+                            <h6 class="mb-0">Mike 613</h6>
+                        </div>
+                        <button class="btn btn-dark" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <div class="card" style="border-radius: 10px; overflow: hidden;">
+                        <img src="Assets/Images/Banners/banner_classic.png" style="width: 100%; height: 100px; object-fit: cover;">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="Assets/Images/Icons/icon_classic.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <div>
+                                    <h6 class="mb-0">Classic Mode</h6>
+                                    <small class="text-muted">+1 guess, +10 range, each level.</small>
+                                </div>
+                                <button class="btn btn-dark" onclick="display('classic')">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="border-radius: 10px; overflow: hidden;">
+                        <img src="Assets/Images/Banners/banner_survival.png" style="width: 100%; height: 100px; object-fit: cover;">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="Assets/Images/Icons/icon_survival.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <div>
+                                    <h6 class="mb-0">Survival Mode</h6>
+                                    <small class="text-muted">100 guesses, get as far as possible.</small>
+                                </div>
+                                <button class="btn btn-dark" onclick="display('survival')">Play</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card" style="border-radius: 10px; overflow: hidden;">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="Assets/Images/Icons/icon_coins.png" class="rounded me-3"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">0</h6>
+                                <small class="text-muted">Coins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="border-radius: 10px; overflow: hidden;">
+                        <div class="d-flex align-items-center p-3">
+                            <img src="Assets/Images/Icons/icon_achievements.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <div>
+                                    <h6 class="mb-0">0/12</h6>
+                                    <small class="text-muted">Achievements</small>
+                                </div>
+                                <button class="btn btn-dark" onclick="display('achievements')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="classic" class="content-div d-none">
+            <h1>Classic Mode</h1>
+            <p>The classic, lol.</p>
+            <button class="btn btn-dark" onclick="display('home')">Back to Home</button>
+        </div>
+
+        <div id="survival" class="content-div d-none">
+            <h1>Survival Mode</h1>
+            <p>Survive with just 100.</p>
+            <button class="btn btn-dark" onclick="display('home')">Back to Home</button>
+        </div>
+
+        <div id="achievements" class="content-div d-none">
+            <h1>Achievements</h1>
+            <p>Ah, yes... Beutiful achievements !!</p>
+            <button class="btn btn-dark" onclick="display('home')">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Google -->
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore-compat.js"></script>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <script src="Assets/Scripts/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+body {
+	font-family: "Inter", sans-serif;
+	background-color: #191A21 !important;
+	background-size: 20px 20px;
+	background-image: radial-gradient(circle, #252731 1px, rgba(0, 0, 0, 0) 1px);
+	color: #e1e3eb !important;
+}
+
+.btn {
+	background-color: #2E303D !important;
+    border: 1px solid #3C3E4D;
+}
+
+.card {
+	background-color: #2E303D !important;
+	border: 1px solid #3C3E4D;
+}
