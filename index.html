@@ -32,7 +32,8 @@
             <h1>Count Me Out</h1>
             <div class="card mb-3" style="border-radius: 10px; overflow: hidden;">
                 <div class="d-flex align-items-center p-3">
-                    <img id="profile-pic" src="" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                    <img id="profile-pic" src="" class="rounded me-3"
+                        style="width: 50px; height: 50px; object-fit: cover;">
                     <div class="d-flex justify-content-between align-items-center w-100">
                         <div>
                             <h6 id="user-name" class="mb-0"></h6>
@@ -44,9 +45,11 @@
             <div class="row g-3 mb-3">
                 <div class="col-md-6">
                     <div class="card" style="border-radius: 10px; overflow: hidden;">
-                        <img src="Assets/Images/Banners/classic.png" style="width: 100%; height: 100px; object-fit: cover;">
+                        <img src="Assets/Images/Banners/classic.png"
+                            style="width: 100%; height: 100px; object-fit: cover;">
                         <div class="d-flex align-items-center p-3">
-                            <img src="Assets/Images/Icons/classic.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <img src="Assets/Images/Icons/classic.png" class="rounded me-3"
+                                style="width: 50px; height: 50px; object-fit: cover;">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <div>
                                     <h6 class="mb-0">Classic Mode</h6>
@@ -59,9 +62,11 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card" style="border-radius: 10px; overflow: hidden;">
-                        <img src="Assets/Images/Banners/survival.png" style="width: 100%; height: 100px; object-fit: cover;">
+                        <img src="Assets/Images/Banners/survival.png"
+                            style="width: 100%; height: 100px; object-fit: cover;">
                         <div class="d-flex align-items-center p-3">
-                            <img src="Assets/Images/Icons/survival.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <img src="Assets/Images/Icons/survival.png" class="rounded me-3"
+                                style="width: 50px; height: 50px; object-fit: cover;">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <div>
                                     <h6 class="mb-0">Survival Mode</h6>
@@ -89,7 +94,8 @@
                 <div class="col-md-6">
                     <div class="card" style="border-radius: 10px; overflow: hidden;">
                         <div class="d-flex align-items-center p-3">
-                            <img src="Assets/Images/Icons/achievements.png" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <img src="Assets/Images/Icons/achievements.png" class="rounded me-3"
+                                style="width: 50px; height: 50px; object-fit: cover;">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <div>
                                     <h6 class="mb-0">0/12</h6>
@@ -104,8 +110,64 @@
         </div>
 
         <div id="classic" class="content-div d-none">
-            <h1>Classic Mode</h1>
-            <p>The classic, lol.</p>
+            <div class="card p-4">
+                <div class="row text-center mb-4">
+                    <div class="col-6 col-md-3 mb-3 mb-md-0">
+                        <div class="border rounded py-2">
+                            <h6 class="fw-bold mb-1" id="level">1</h6>
+                            <p class="mb-0 text-secondary"><i class="ph-duotone ph-star text-warning align-middle me-1"></i> Level</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3 mb-md-0">
+                        <div class="border rounded py-2">
+                            <h6 class="fw-bold mb-1" id="attempts">4</h6>
+                            <p class="mb-0 text-secondary"><i class="ph-duotone ph-arrow-fat-lines-right text-primary align-middle me-1"></i> Moves Left</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="border rounded py-2">
+                            <h6 class="fw-bold mb-1" id="range">1 to 10</h6>
+                            <p class="mb-0 text-secondary"><i class="ph-duotone ph-chart-bar text-success align-middle me-1"></i> Guess Range</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="border rounded py-2">
+                            <h6 class="fw-bold mb-1" id="timer">0s</h6>
+                            <p class="mb-0 text-secondary"><i class="ph-duotone ph-timer text-danger align-middle me-1"></i> Time Taken</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Enter your guess" min="1" id="guess">
+                            <button class="btn btn-primary" type="button" id="submit">Check</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12">
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-dark flex-fill" type="button" id="playpause">Play</button>
+                            <button class="btn btn-dark flex-fill" type="button" id="hint">Hint</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column text-center gap-3">
+                    <div class="border rounded py-2">
+                        <h6 class="fw-bold mb-1" id="status">Press play to guess</h6>
+                        <p class="mb-0 text-secondary">Status</p>
+                    </div>
+                    <div class="border rounded py-2">
+                        <h6 class="fw-bold mb-1" id="guessed">None</h6>
+                        <p class="mb-0 text-secondary">Guessed Numbers</p>
+                    </div>
+                </div>
+            </div>
+
             <button class="btn btn-dark" onclick="display('home')">Back to Home</button>
         </div>
 
