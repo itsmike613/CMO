@@ -11,6 +11,33 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+function display(viewId) {
+    document.querySelectorAll(".content-div").forEach((view) => view.classList.add("d-none"));
+    document.getElementById(viewId).classList.remove("d-none");
+}
+
+function login() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider).then((result) => {
+        const user = result.user;
+        document.getElementById('user-name').textContent = user.displayName;
+        document.getElementById('profile-pic').src = user.photoURL;
+        display('home');
+    }).catch((error) => {
+        console.error("Error during login: ", error);
+    });
+}
+
+function logout() {
+    auth.signOut().then(() => {
+        display('login');
+        document.getElementById('user-name').textContent = '';
+        document.getElementById('profile-pic').src = '';
+    }).catch((error) => {
+        console.error("Error during logout: ", error);
+    });
+}
+
 let timer = 0;
 let timerInterval = null;
 let currentLevel = 1;
